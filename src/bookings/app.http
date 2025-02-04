@@ -1,0 +1,36 @@
+###
+GET http://localhost:8000/api/bookings
+Authorization:
+
+###
+// Getting by ID
+GET http://localhost:8000/api/bookings/1
+Authorization:
+###
+
+//Creating a booking
+POST http://localhost:8000/api/bookings
+Content-Type: application/json
+
+{
+    "user_id": 1,
+    "theraphist_id": 1,
+    "session_id": 1,
+    "session_date": "2021-09-01",
+    "session_time": "10:00:00",
+}
+
+###
+//Updating a booking
+PUT http://localhost:8000/api/bookings/1
+Content-Type: application/json
+
+{
+    "session_date": "2021-09-02",
+    "session_time": "11:00:00",
+}
+
+###
+
+//Deleting a booking
+DELETE http://localhost:8000/api/bookings/1
