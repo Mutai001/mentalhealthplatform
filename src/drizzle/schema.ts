@@ -164,3 +164,21 @@ export type TSAuthentication = typeof Authentication.$inferSelect;
 
 export type TITherapists = typeof therapists.$inferInsert;
 export type TSTherapists = typeof  therapists.$inferSelect
+
+export type TISessions = typeof sessions.$inferInsert;
+export type TSSessions = typeof sessions.$inferSelect;
+
+export type TIDiagnostics = typeof diagnostics.$inferInsert;
+export type TSDiagnostics = typeof diagnostics.$inferSelect;
+
+export type TIFeedback = typeof feedback.$inferInsert;
+export type TSFeedback = typeof feedback.$inferSelect;
+
+export type TIPayments = typeof payments.$inferInsert;
+export type TSPayments = typeof payments.$inferSelect;
+
+export type TIResources = typeof resources.$inferInsert;
+export type TSResources = typeof resources.$inferSelect;
+
+export type TIBookings = typeof bookings.$inferInsert;
+export type TSBookings = typeof bookings.$inferSelect;

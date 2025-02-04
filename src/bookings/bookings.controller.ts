@@ -8,7 +8,7 @@ export const listBookings = async (c: Context) =>{
     try {
         const limit = Number(c.req.query('limit'))
         const data = await bookingsService(limit);
-        if (data == null || data.lenght == 0){
+        if (data == null || data.length == 0){
             return c.text("booking not found", 404)
         }
         return c.json(data, 200);
