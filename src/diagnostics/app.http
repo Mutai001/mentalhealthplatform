@@ -1,0 +1,31 @@
+###
+//Fetch all diagnostics
+GET http://localhost:8000/api/diagnostics
+
+###
+//Fetch a single diagnostic
+GET http://localhost:8000/api/diagnostics/1
+
+###
+//Create a diagnostic
+POST http://localhost:8000/api/diagnostics
+Content-Type: application/json
+
+{
+    "patient_id": 1,
+    "diagnosis": "Malaria",
+    "prescription": "Take 2 tablets of paracetamol"
+}
+
+###
+//Update a diagnostic
+PUT http://localhost:8000/api/diagnostics/1
+Content-Type: application/json
+
+{
+    "prescription": "Take 2 tablets of paracetamol every 6 hours"   
+}
+
+###
+//Delete a diagnostic
+DELETE http://localhost:8000/api/diagnostics/1

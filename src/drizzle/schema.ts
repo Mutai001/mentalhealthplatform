@@ -72,6 +72,7 @@ import {
   export const diagnostics = pgTable("diagnostics", {
     id: serial("diagnostic_id").primaryKey(),
     user_id: integer("user_id").notNull().references(() => users.id),
+    therapist_id: integer("therapist_id").notNull().references(() => therapists.id),
     diagnosis: varchar("diagnosis", { length: 255 }).notNull(),
     recommendations: text("recommendations"),
     created_at: timestamp("created_at").defaultNow(),
@@ -80,6 +81,10 @@ import {
   
   export const diagnosticsRelations = relations(diagnostics, ({ one }) => ({
     user: one(users, { fields: [diagnostics.user_id], references: [users.id] }),
+  }));
+
+  export const diagnosticsRelations2 = relations(diagnostics, ({ one }) => ({
+    therapist: one(therapists, { fields: [diagnostics.therapist_id], references: [therapists.id] }),
   }));
   
   // Feedback Table
