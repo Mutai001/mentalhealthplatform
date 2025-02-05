@@ -1,0 +1,42 @@
+###
+//Fetch all feedbacks
+###
+GET http://localhost:8000/api/feedbacks
+
+###
+//Fetch feedback by ID
+###
+GET http://localhost:8000/api/feedbacks/1
+
+###
+//Create feedback
+###
+POST http://localhost:8000/api/feedbacks
+Content-Type: application/json
+
+{   
+    "feedback_id": 1,
+    "user_id": 1,
+    "therapist_id": 1,
+    "session_id": 1,
+    "rating": 5,
+    "comment": "This is a feedback",
+    "created_at": "2021-09-01 12:00:00",
+    "updated_at": "2021-09-01 12:00:00"
+}
+
+###
+//Update feedback
+###
+PUT http://localhost:8000/api/feedbacks/1
+Content-Type: application/json
+
+{
+    "feedback_id": 1,
+    "rating": 4
+}
+
+###
+//Delete feedback
+###
+DELETE http://localhost:8000/api/feedbacks/1

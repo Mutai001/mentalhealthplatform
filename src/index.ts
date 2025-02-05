@@ -8,6 +8,7 @@ import { serve } from '@hono/node-server'
 import {cors} from 'hono/cors'
 import { bookingRouter } from './bookings/bookings.rouuter'
 import { diagnosticsRouter } from './diagnostics/diagnostics.router'
+import { feedbackRouter } from './feedback/feedback.router'
 
 const app = new Hono();
 app.get('/', (c) => {
@@ -23,6 +24,7 @@ app.route("/api",authRouter)
 app.route("/api",therapistRouter)
 app.route("/api",bookingRouter)
 app.route("/api",diagnosticsRouter)
+app.route("/api",feedbackRouter)
 
 
 serve({

@@ -1,8 +1,9 @@
 import {eq} from "drizzle-orm";
+import { TITherapists, TSTherapists, therapists } from "../drizzle/schema";
+import db from "../drizzle/db";
+
 
 //get all therapists
-import db from "../drizzle/db";
- import { TITherapists, TSTherapists, therapists } from "../drizzle/schema";
   export const therapistsService = async (limit?: number): Promise<TSTherapists[] | null> => {
     if (limit) {
       return await db.query.therapists.findMany({

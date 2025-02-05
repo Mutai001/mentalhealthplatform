@@ -91,15 +91,21 @@ import {
   export const feedback = pgTable("feedback", {
     id: serial("feedback_id").primaryKey(),
     user_id: integer("user_id").notNull().references(() => users.id),
+    therapist_id: integer("therapist_id").notNull().references(() => therapists.id),
     session_id: integer("session_id").notNull().references(() => sessions.id),
     rating: integer("rating").notNull(),
     comments: text("comments"),
     created_at: timestamp("created_at").defaultNow(),
+    updated_at: timestamp("updated_at").defaultNow(),
   });
   
   export const feedbackRelations = relations(feedback, ({ one }) => ({
     user: one(users, { fields: [feedback.user_id], references: [users.id] }),
     session: one(sessions, { fields: [feedback.session_id], references: [sessions.id] }),
+  }));
+
+  export const feedbackRelations2 = relations(feedback, ({ one }) => ({
+    therapist: one(therapists, { fields: [feedback.therapist_id], references: [therapists.id] }),
   }));
   
   // Payments Table
