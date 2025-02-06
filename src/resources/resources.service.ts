@@ -1,4 +1,3 @@
-import { TIResources } from './../drizzle/schema';
 import { eq } from "drizzle-orm";
 import { TIResources, TSResources, resources } from "../drizzle/schema";
 import db from "../drizzle/db";
@@ -22,6 +21,19 @@ export const getResourcesService = async (id: number) : Promise<TIResources | un
 }
 
 //Create a resource
-export const createReesourcesServicen = asyc (resources: TIResources) => {
-    await db.insert(resources).values(resources)
+export const createResourcesService = async (resource: TIResources) =>{
+    await db.insert(resources).values(resource);
+    return "Resource created successfully";
+}
+
+//Update a resource
+export const updateResourcesService = async (id: number, resource: TIResources) =>{
+    await db.update(resources).set(resource).where(eq(resources.id, id));
+    return "Resource updated successfully";
+}
+
+//Delete a resource
+export const deleteResourcesService = async (id: number) =>{
+    await db.delete(resources).where(eq(resources.id, id));
+    return "Resource deleted successfully";
 }
